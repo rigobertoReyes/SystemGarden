@@ -5,11 +5,11 @@
 	{% endblock %}
 
 	{% block content%}
-<div class="mt-4 mb-4 card border rounded border-warning">
+<div class="mt-4 mb-4 card border rounded border-success text-white bg-dark">
 			<div class="container">
                 <div class="card-body border-bottom">
 <h2 class="form-label text-center">Trabajo Diario</h2>
-<p class="form-label text-justify font-italic">Se muestran los trabajos que han sido subidos el dia de hoy</p>
+<p class="form-label text-justify font-italic">Se muestran los trabajos que han sido subidos</p>
     </div>
                 <div class="form-inline margenes10">
               
@@ -33,12 +33,12 @@
                 <tr>
                 	
 					<td>{{ p.DT_maestro }}</td>
-					<td>{{ p.DT_alumno }} con el id: {{ p.DT_alumno.id }}</td>
+					<td>{{ p.DT_alumno }}</td>
 					<td>{{ p.DT_fecha }}</td>
 					<td>{{ p.DT_descripcion }}</td>
 					<td>{{ p.DT_actividadApoyo }}</td>
 					<td>{{ p.DT_necesidades }}</td>
-					<!--<td>{{ p.id }}</td>-->
+					
 				</tr>
 			{% endfor %}
 			</tbody>

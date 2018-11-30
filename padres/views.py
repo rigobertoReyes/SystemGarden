@@ -10,11 +10,8 @@ from alumnos.models import alumnos
 import json
 from django.utils.datastructures import MultiValueDictKeyError
 # Create your views here.
-def LogIn(request):    
-	return render(request,'log/in.html')
 
-def Index2(request):    
-	return render(request,'padres/indexPadres.html')
+
     
 def login(request):
     if  request.method == 'POST':
@@ -49,21 +46,15 @@ def updateTutores(request):
 
     return HttpResponseRedirect(url)
 
-class addTutor(generic.FormView):
+class CreateTutor(generic.FormView):
     template_name = 'padres/agregar.html'
     form_class = AddTutorForm
     success_url = reverse_lazy('reporteTutor')
     
     def form_valid(self, form):
         Usr = form.save()
-        #Usr = User()
-        #username = request.POST['username']
-        #password = request.POST['password']
-        #Usr.username = username
-        #Usr.password = password
         prm = Permission.objects.get(codename='is_tutorr')
         Usr.user_permissions.add(prm)
-        #Usr.save()
         tut = Tutor()
         tut.tut_nombre = Usr
         tut.tut_apellidos = form.cleaned_data['fname'] + ' ' + form.cleaned_data['lname'] + ' ' + form.cleaned_data['apellidoM']
@@ -72,10 +63,8 @@ class addTutor(generic.FormView):
         tut.tut_numero = form.cleaned_data['telefono']
         tut.tut_parentesco = form.cleaned_data['parent']
         tut.save()
-        return super(addTutor,self).form_valid(form)
-        #return HttpResponseRedirect('maestros/agregar/')
-    #else:
-     #   return HttpResponseRedirect('maestros/agregar/')
+        return super(CreateTutor,self).form_valid(form)
+        HttpResponseRedirect('maestros/agregar/')
         
 def tutorAsign(request, slug):
     dat = slug

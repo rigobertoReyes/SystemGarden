@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Editar alumno{% endblock %}
 {% block content %} 
-<div class="mt-4 mb-4 card border rounded border-warning">
+<div class="mt-4 mb-4 card border rounded border-success text-white bg-dark">
 <div class="container">
                 <div class="card-body border-bottom">
                     <h2 class="form-label text-center">Actualizar alumno</h2>
@@ -41,19 +41,19 @@
        <div id="divTutores" style="display: none;">
         {{form.alu_tutores}}
        </div>
-       <ul class="list-group" id="slTutores" ></ul><span class="oi oi-pencil" style="color: #fe6265;" onclick=" window.open('/addtutor/{{form.slug.value}}')" aria-hidden="true"></span>
+       <ul class="list-group" id="slTutores" ></ul><span class="oi oi-pencil" style="color: #000000;" onclick=" window.location=('/addtutor/{{form.slug.value}}')" aria-hidden="true"></span>
         <script>
             s = document.getElementById('divTutores').children[0]
             for(var i = 0; i < s.childElementCount; i++){
                 if(s.children[i].getAttribute('selected') != null){
                     var op = document.createElement('li')
-                    op.className ='list-group-item'
+                    op.className ='list-group-item-light'
                     op.innerHTML = s.children[i].textContent
                     document.getElementById('slTutores').appendChild(op)
                 }
             }
         </script>
-        <!--<input type="text"  class="form-control col-sm-10" name="" value="" /> -->
+
         </div>
 
 
@@ -61,15 +61,10 @@
             <label class="text-right justify-content-end control-label col-sm-2" for="comment">Observaciones:</label>
             <textarea class="form-control col-sm-10" style="resize: none;" rows="5" name="{{form.alu_observaciones.name}}" id="comment">{{form.alu_observaciones.value}}</textarea>
         </div>
-    <!--
-        {% for frm in form.alu_tutores %}
-                {{frm}}
-        {% endfor %}
-    <img height="100" width="100" src="{{ object.alu_foto.url }}"/>
-    -->
+
     <div class="form-group ">
           <div class="d-flex justify-content-around">
-            <button  class="btn btn-success" type="submit">Actualizar</button>
+            <button  class="btn btn-success" onclick="window.location = '/alumnos/detalles'" type="submit">Actualizar</button>
             <button class="btn btn-danger" onclick="window.location = '/alumnos/detalles'" type="reset">Cancelar</button>
         </div>
     </div>

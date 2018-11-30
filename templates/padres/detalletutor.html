@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Informacion del tutor{% endblock %}
 {% block content %}
-<div class="mr-md-3 mt-4 mb-4 card border rounded border-danger float-left " style="max-width:300px; height: 505px;">
+<div class="mr-md-3 mt-4 mb-4 card border rounded border-success text-white bg-dark float-left " style="max-width:300px; height: 505px;">
 <img src="{{ alm.alu_foto.url }}" class="card-img-top border-bottom"/>
     <div class="card-body border-bottom">
 <h2 class="form-label text-center">Tutor</h2>
@@ -19,7 +19,7 @@
 </div>
 
  {% for alm in Alumnos %}
-<div class="mr-md-3 mt-4 mb-4 card border rounded border-warning float-left " style="max-width:275px">
+<div class="mr-md-3 mt-4 mb-4 card border rounded border-success text-white bg-dark float-left " style="max-width:275px">
 <img src="{{ alm.alu_foto.url }}" class="card-img-top border-bottom"/>
     <div class="card-body border-bottom">
 <h4 class="form-label text-center">Alumno</h4>

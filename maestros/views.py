@@ -15,7 +15,7 @@ from alumnos.models import alumnos
 from django.core import serializers
 import json
 
-class agregarMaestro(FormView):
+class CreateMaestro(FormView):
     template_name = 'maestros/addTeacher.html'
     form_class = StudentSignUpForm
     success_url =reverse_lazy('reporteMaestro')
@@ -32,7 +32,7 @@ class agregarMaestro(FormView):
         m.pro_apellidoMaterno = form.cleaned_data["materno"]
         m.pro_fechaNacimento = form.cleaned_data["nacimiento"]
         m.save()
-        return super(agregarMaestro, self).form_valid(form)
+        return super(CreateMaestro, self).form_valid(form)
         
 def actualizarMaestro(request,slug):
     usr = User.objects.get(username = slug)
@@ -121,7 +121,7 @@ def buscarEnelGrupo(request,slug):
 
 
 
-def crearGrupo(request):
+def CreateGrupo(request):
     if request.method == 'POST':
         ng = grupos()
         ng.gru_clave = request.POST['clave']
